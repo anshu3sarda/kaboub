@@ -1,0 +1,101 @@
+<%- include('partials/header'); -%>
+
+<div class="background-contact">
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">Contact</h1>
+            <p class="text-white">Reach me out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="untree_co-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <form action="/contact" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="text-black" for="fname">First name</label>
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required="required">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="text-black" for="lname">Last name</label>
+                <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required="required">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="text-black" for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required="required">
+          </div>
+
+          <div class="form-group">
+            <label for="form_need">Who are you?</label>
+            <select id="form_need" name="who" class="form-control" required="required" placeholder="Who are you?">
+              <option value="Student">Researchers</option>
+              <option value="Media">Policy Analysts</option>
+              <option value="Academician">Academics</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="form_need">Nature of your message</label>
+            <select id="form_need" name="nature" class="form-control" required="required" placeholder="Nature of your message?">
+              <option value="General Question">General Question</option>
+              <option value="Media Appearance">Media Appearance</option>
+              <option value="Invitation to speak">Invitation to speak</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="text-black" for="message">Message</label>
+            <textarea name="message" class="form-control" id="message" cols="30" rows="5" placeholder="Message" required="required"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+      <div class="col-lg-5 ml-auto">
+        <div class="quick-contact-item d-flex align-items-center mb-4">
+          <span class="flaticon-house"></span>
+          <address class="text">
+            Denison University, Economics Department <br> 204 Higley Hall, 100 W. College St <br> Granville, OH 43023
+          </address>
+        </div>
+        <div class="quick-contact-item d-flex align-items-center mb-4">
+          <span class="flaticon-phone-call"></span>
+          <address class="text">
+            <a href="tel:+17405876315">+1 (740)-587-6315</a>
+          </address>
+        </div>
+        <div class="quick-contact-item d-flex align-items-center mb-4">
+          <span class="flaticon-mail"></span>
+          <address class="text">
+            <a href="mailto:kaboubf@denison.edu">kaboubf@denison.edu</a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%- include('partials/footer'); -%>

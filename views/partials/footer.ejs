@@ -1,0 +1,129 @@
+<div class="site-footer">
+  <div class="inner first">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="widget">
+            <h3 class="heading">Contact</h3>
+            <ul class="list-unstyled quick-info links">
+              <li class="email"><a href="mailto:kaboubf@denison.edu">kaboubf@denison.edu</a></li>
+              <li class="phone"><a href="call:+1 (740)-587-6315">+1 (740)-587-6315</a></li>
+              <li class="address"><a href="#">Denison University, Economics Department <br>204 Higley Hall, 100 W. College St <br>Granville, OH 43023</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 pl-lg-5">
+          <div class="widget">
+            <h3 class="heading">Menu</h3>
+            <ul class="links list-unstyled">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+          <div class="widget">
+            <h3 class="heading">Publications</h3>
+            <ul class="links list-unstyled">
+              <li><a href="/videos">Videos</a></li>
+              <li><a href="/printMedia">Print Media</a></li>
+              <li><a href="/podcasts">Podcasts</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/academicSpace">Academic Space</a></li>
+              <li><a href="/tvAppearances">TV Appearances</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="widget">
+            <h3 class="heading">Subscribe to Fadhel's Newsletter</h3>
+            <form action="/footer" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control" type="text" name="newsletteremail" value="" placeholder="Enter your Email Address">
+              </div>
+              <button type="submit" class="btn btn-primary btn-md font-weight-bold" name="submit">Submit</button>
+            </form>
+          </div>
+          <div class="widget">
+            <ul class="list-unstyled social">
+              <li title="Twitter"><a href="https://twitter.com/FadhelKaboub"><span class="icon-twitter"></span></a></li>
+              <li title="Instagram"><a href="https://instagram.com/FadhelKaboub"><span class="icon-instagram"></span></a></li>
+              <li title="LinkedIn"><a href="https://www.linkedin.com/in/fadhel-kaboub/"><span class="icon-linkedin"></span></a></li>
+              <li title="YouTube"><a href="https://www.youtube.com/channel/UCwLYfcuTNUl-WmD3cl3dszg/"><span class="icon-youtube"></span></a></li>
+              <li title="Facebook"><a href="https://www.facebook.com/kaboubf"><span class="icon-facebook"></span></a></li>
+              <li title="ClubHouse"><a href="https://www.clubhouse.com/@fadhelkaboub"><span class="icon-github-alt"></span></a></li>
+              <li title="Post.News"><a href="https://post.news/fadhelkaboub"><span class="icon-flickr"></span></a></li>
+              <li title="Website"><a href="https://www.kaboub.com/"><span class="icon-web"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inner dark">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-8 mb-3 mb-md-0 mx-auto">
+          <p>Copyright &copy;<script>
+              document.write(new Date().getFullYear());
+            </script>. All Rights Reserved.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+
+<script src="js/typed.js"></script>
+<script>
+  $(function() {
+    var slides = $('.slides'),
+      images = slides.find('img');
+
+    images.each(function(i) {
+      $(this).attr('data-id', i + 1);
+    })
+
+    var typed = new Typed('.typed-words', {
+      strings: ["Professor of Economics"],
+      typeSpeed: 80,
+      backSpeed: 80,
+      backDelay: 4000,
+      startDelay: 1000,
+      loop: true,
+      showCursor: true,
+      preStringTyped: (arrayPos, self) => {
+        arrayPos++;
+        console.log(arrayPos);
+        $('.slides img').removeClass('active');
+        $('.slides img[data-id="' + arrayPos + '"]').addClass('active');
+      }
+
+    });
+  })
+</script>
+
+<script src="js/custom.js"></script>
+
+</body>
+
+</html>

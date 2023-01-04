@@ -1,0 +1,36 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="background background-academic-space">
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">Publications</h1>
+            <p class="text-white">Academic Space</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="untree_co-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-6 text-center">
+        <h2 class="section-title mb-3 text-center">Recent publications:</h2>
+      </div>
+      <div class="articles-scrape col-md-12">
+        <ul>
+          <% for(i = 0; i < articles.length; i++){%>
+            <li><%=articles[i].title%><a title="Link" href=<%=articles[i].url%>> | Click Here</a></li>
+            <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer'); -%>
