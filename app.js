@@ -147,6 +147,6 @@ app.get('/tvAppearances', (req, res) => {
   }).catch(err => console.log(err));
 })
 
-app.listen(3000 || process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("App is live on localhost:3000")
 })
