@@ -5,9 +5,6 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const app = express();
 
-
-const port = 3000 || process.env.PORT;
-
 const url = "http://www.global-isp.org/president/";
 
 app.set("view engine", "ejs");
@@ -150,6 +147,6 @@ app.get('/tvAppearances', (req, res) => {
   }).catch(err => console.log(err));
 })
 
-app.listen(port || process.env.PORT, () => {
-  console.log(`App is live on localhost:${port}`)
+app.listen(3000 || process.env.PORT, () => {
+  console.log("App is live on localhost:3000")
 })
