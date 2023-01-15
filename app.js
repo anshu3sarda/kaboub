@@ -44,10 +44,6 @@ app.post('/footer', (req, res)=>{
   console.log(email);
 })
 
-// Recent Events Route
-// app.get('/futureEvents', (req, res) => {
-//   res.render("futureEvents");
-// })
 
 // Publications/Video Route
 app.get('/videos', (req, res) => {
@@ -56,95 +52,22 @@ app.get('/videos', (req, res) => {
 
 // Publications/PrintMedia Route
 app.get('/printMedia', (req, res) => {
-  axios("http://www.global-isp.org/president/")
-  .then(response => {
-  const html = response.data;
-  const $ = cheerio.load(html)
-  const articles = []
-  // 
-      $('ul:nth-child(8) > li', html).each(function () {
-      const title = $(this).text()
-      const source = $(this).find('em').text()
-      const url = $(this).find('a').attr('href')
-      articles.push({
-          title: title,
-          source: source,
-          url : url,
-      });
-      })
-      res.render("publications/printMedia",{articles: articles, title: articles.title, source: articles.source , url: articles.url});
-  }).catch(err => console.log(err));
+  res.render("publications/printMedia");
 })
 
 // Publications/Podcasts Route
 app.get('/podcasts', (req, res) => {
-  axios("http://www.global-isp.org/president/")
-  .then(response => {
-  const html = response.data;
-  const $ = cheerio.load(html)
-  const articles = []
-  // 
-      $('ul:nth-child(12) > li', html).each(function () {
-        const title = $(this).text()
-        const source = $(this).find('em').text()
-        const url = $(this).find('a').attr('href')
-        articles.push({
-            title: title,
-            source: source,
-            url : url,
-        });
-      })
-      res.render("publications/podcasts",{articles: articles, title: articles.title, source: articles.source , url: articles.url});
-  }).catch(err => console.log(err));
-})
-
-// Publications/Blog Route
-app.get('/blog', (req, res) => {
-  res.render("publications/blog");
+  res.render("publications/podcasts");
 })
 
 // Publications/AcademicSpace Route
 app.get('/academicSpace', (req, res) => {
-  axios("http://www.global-isp.org/president/")
-    .then(response => {
-    const html = response.data;
-    const $ = cheerio.load(html)
-    const articles = []
-
-        $('#page-content ul:first > li', html).each(function () {
-          const title = $(this).text()
-          const source = $(this).find('em').text()
-          const url = $(this).find('a').attr('href')
-          articles.push({
-              title: title,
-              source: source,
-              url : url,
-          });
-        })
-        res.render("publications/academicSpace",{articles: articles, title: articles.title, source: articles.source , url: articles.url});
-    }).catch(err => console.log(err));
+  res.render("publications/academicSpace");
 })
 
 // Publications/TVAppearances Route
 app.get('/tvAppearances', (req, res) => {
-  axios("http://www.global-isp.org/president/")
-  .then(response => {
-  const html = response.data;
-  const $ = cheerio.load(html)
-  const articles = []
-  // 
-      $('ul:nth-child(10) > li', html).each(function () {
-        const title = $(this).text()
-        const source = $(this).find('em').text()
-        const url = $(this).find('a').attr('href')
-        articles.push({
-            title: title,
-            source: source,
-            url : url,
-        });
-      })
-      res.render("publications/tvAppearances",{articles: articles, title: articles.title, source: articles.source , url: articles.url});
-  }).catch(err => console.log(err));
+  res.render("publications/tvAppearances");
 })
 
 app.listen(process.env.PORT || 3000, () => {
