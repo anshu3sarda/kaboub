@@ -1,12 +1,9 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const axios = require('axios');
-const cheerio = require('cheerio');
+const { google } = require('googleapis');
 const app = express();
-
-const url = "http://www.global-isp.org/president/";
-
+const keyFile = require('./credentials.json');
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,23 +23,73 @@ app.get('/contact', (req, res) => {
   res.render("contact");
 })
 
-app.post('/contact', (req, res) => {
-  const contactForm = {
-    firstName : req.body.fname,
-    lastName : req.body.lname,
-    email : req.body.email,
-    who : req.body.who,
-    nature : req.body.nature,
-    message : req.body.message
+
+const spreadsheetId = '1DyJcYBLujaZSYEgCx1N-Qweny_-vv4vPbCXl4DQ4iiU';
+const jwtClient = new google.auth.JWT(
+  keyFile.client_email,
+  null,
+  keyFile.private_key,
+  ['https://www.googleapis.com/auth/spreadsheets'],
+);
+
+// const contactForm = {
+//   firstName : req.body.fname,
+//   lastName : req.body.lname,
+//   email : req.body.email,
+//   who : req.body.who,
+//   nature : req.body.nature,
+//   message : req.body.message
+// }
+
+
+// sheetId: 1DyJcYBLujaZSYEgCx1N-Qweny_-vv4vPbCXl4DQ4iiU
+app.post('/contact', async (req, res) => {
+  try {
+    await jwtClient.authorize();
+
+    const sheets = google.sheets({ version: 'v4', auth: jwtClient });
+
+    // Append the form data to the Google Sheet
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+      range: 'ContactForm',
+      valueInputOption: 'USER_ENTERED',
+      insertDataOption: 'INSERT_ROWS',
+      resource: {
+        values: [[req.body.fname, req.body.lname, req.body.email, req.body.who, req.body.nature, req.body.message]],
+      },
+    });
+    res.status(200).render('success', {type:'contact information'});
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('failure', {type:'contact information'});
   }
-  console.log(contactForm);
+});
 
-})
 
-app.post('/footer', (req, res)=>{
-  const email = req.body.newsletteremail;
-  console.log(email);
-})
+app.post('/footer', async (req, res) => {
+  try {
+    await jwtClient.authorize();
+
+    const sheets = google.sheets({ version: 'v4', auth: jwtClient });
+
+    // Append the form data to the Google Sheet
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+      range: 'EmailList',
+      valueInputOption: 'USER_ENTERED',
+      insertDataOption: 'INSERT_ROWS',
+      resource: {
+        values: [[req.body.newsletteremail]],
+      },
+    });
+
+    res.status(200).render('success', {type:'email address'});
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('failure', {type:'email address'});
+  }
+});
 
 
 // Publications/Video Route
