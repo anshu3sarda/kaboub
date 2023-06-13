@@ -1549,3 +1549,73 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   -webkit-animation: 0.3s linear 0.9s both fadeIn;
           animation: 0.3s linear 0.9s both fadeIn;
 }
+
+.widget-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.socials-hero {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.socials-hero li {
+  margin-right: 10px;
+}
+
+.socials-hero li a {
+  display: inline-block;
+  width: 30px; /* Increase the width as desired */
+  height: 30px; /* Increase the height as desired */
+  background-color: #fff; /* Set the background color to white */
+  border-radius: 50%; /* Create a circular shape for the icons */
+}
+
+/* Assuming the icon classes have a specific font-family */
+.socials-hero li a span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: 'your-icon-font-family';
+  text-align: center;
+  line-height: 30px; /* Adjust the line-height to vertically center the icon */
+  color: #000; /* Set the icon color to black */
+}
+
+/* Example styling for Font Awesome icons */
+.socials-hero li a span.icon-twitter:before {
+  content: "\f099";
+}
+
+.socials-hero li a span.icon-instagram:before {
+  content: "\f16d";
+}
+
+.socials-hero li a span.icon-linkedin:before {
+  content: "\f08c";
+}
+
+.socials-hero li a span.icon-youtube:before {
+  content: "\f167";
+}
+
+.socials-hero li a span.icon-facebook:before {
+  content: "\f09a";
+}
+
+.socials-hero li a span.icon-github-alt:before {
+  content: "\f113";
+}
+
+.socials-hero li a span.icon-flickr:before {
+  content: "\f16e";
+}
+
+.socials-hero li a span.icon-web:before {
+  content: "\f0ac";
+}

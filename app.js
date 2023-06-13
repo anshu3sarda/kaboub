@@ -1,5 +1,6 @@
 const express = require('express');
 const ejs = require('ejs');
+// const axios = require('axios'); // Automation of articles not required!!
 const bodyParser = require('body-parser');
 const { google } = require('googleapis');
 const app = express();
